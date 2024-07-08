@@ -1,0 +1,68 @@
+/* index.css */
+body { 
+  background-color: #1e1e1e; 
+} 
+
+.game-area {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr); /* 20 columns */
+  grid-template-rows: repeat(16, 1fr); /* 16 rows */
+  gap: 12px; /* gap between cells */
+  border: 2px solid #dc042c;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #abbfc0;
+}
+
+/* Add grid lines using ::before and ::after pseudo-elements */
+.game-area::before,
+.game-area::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: repeating-linear-gradient(to right, transparent, transparent 6px, #ffffff 6px, #ffffff 6px);
+}
+
+.game-area::after {
+  transform: rotate(90deg);
+  background: repeating-linear-gradient(to bottom, transparent, transparent 6px, #ffffff 6px, #ffffff 6px);
+}
+
+@media only screen and (max-width: 800px) { 
+  .game-area { 
+      position: relative; 
+      width: 350px; 
+      height: 300px; 
+  } 
+
+  .snake { 
+      width: 12px; 
+      height: 12px; 
+  } 
+} 
+
+.snake { 
+  position: absolute; 
+  width: 2%; 
+  height: 2%; 
+  background-color: #dc042c; 
+  border: 1px solid white; 
+  z-index: 2; 
+} 
+
+.food { 
+  position: absolute; 
+  width: 12px; 
+  height: 12px; 
+  background-color: white; 
+  border-radius: 20px; 
+  z-index: 1; 
+}
